@@ -1,0 +1,27 @@
+version: "3"
+
+services:
+  server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    restart: unless-stopped
+    depends_on:
+      - database
+
+  database:
+    restart: unless-stopped
+    image: postgres:latest
+    expose:
+      - "5432"
+    environment:
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=db
+    volumes:
+      - db_volume:/var/lib/postgresql/data/
+
+volumes:
+  db_volume:

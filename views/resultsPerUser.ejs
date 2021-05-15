@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<%- include('head.ejs') %>
+</head>
+
+<body id="">
+	<div class="pure-g" style="height:100%;overflow: none;">
+		<%- include('header.ejs') %>
+
+			<% const getCountryEmoji=(isoCode)=> countriesEmojis.get(isoCode).emoji;
+				const getCountryName = (isoCode) => countriesName.getName(isoCode, lang);
+				%>
+
+				<div class="tiles">
+					<% for(var line=0 ; line <=Math.floor(users.length / 8); line++) { %>
+						<div class="tiles-line">
+							<% for(var index=line*8 ; index < Math.min(line*8 + 8, users.length); index++) { %>
+								<% var user = users[index]; %>
+								<% var result = resultsDict[user.id]; %>
+									<div class="tile pure-u-1 pure-u-lg-1-8" id="tile-<%= user.id %>">
+										<div class="tile-content">
+											<div class="username">
+												<%= user.name %>
+											</div>
+											<br />
+											<div class="list">
+												<% for(var v=0 ; v < result.length; v++) { %>
+													<% var vote = result[v]; %>
+													<% var artist = artists[vote.artistId - 1]; %>
+													<p>
+														<%= vote.points %>. <%= getCountryEmoji(artist.country) %>
+														<%= getCountryName(artist.country) %>
+													</p>
+												<% } %>
+												 
+											</div>
+										</div>
+									</div>
+									<% } %>
+						</div>
+						<% } %>
+				</div>
+	</div>
+
+	<script>
+	</script>
+</body>
+
+</html>

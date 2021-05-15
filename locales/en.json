@@ -1,0 +1,12 @@
+{
+	"404_MESSAGE": "Go back",
+	"ENTER_NAME": "Enter your name",
+	"VOTE": "Vote",
+	"GIVE": "Give",
+	"DISTRIBUTE": "Distributing",
+	"POINTS": "Points",
+	"POINT": "Point",
+	"AFTER_VOTE": "Your vote has been processed",
+	"RESULTS_USERS": "Show votes per users",
+	"RESULTS_ARTISTS": "Show votes per artists"
+}

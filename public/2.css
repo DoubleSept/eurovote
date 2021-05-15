@@ -1,0 +1,95 @@
+.tile-limited {
+  height: 220px;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.tile {
+  text-align: center;
+  vertical-align: middle;
+
+  line-height: 1.5;
+  vertical-align: middle;
+  padding: 1rem;
+}
+
+.tile .tile-content {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.tile .number {
+  color: blanchedalmond;
+}
+
+.tile .country {
+  padding-bottom: 2em;
+}
+
+.tile .artist {
+  font-size: 110%;
+}
+
+.tile .song,
+.tile .username {
+  font-size: 110%;
+  font-weight: bold;
+}
+
+.tile .id {
+  display: none;
+}
+
+.tile .tilePoints {
+  visibility: hidden;
+  font-style: italic;
+}
+
+.tile:hover .tilePoints {
+  visibility: visible;
+}
+
+.tiles-line {
+  display: flex;
+  justify-content: center;
+}
+
+.tiles,
+.tiles-line {
+  width: 100%;
+}
+
+.tiles-line:nth-child(odd) .tile:nth-child(odd),
+.tiles-line:nth-child(even) .tile:nth-child(even) {
+  background: #1c7ec0;
+}
+
+.tiles-line:nth-child(even) .tile:nth-child(odd),
+.tiles-line:nth-child(odd) .tile:nth-child(even) {
+  background: #5aafe7;
+}
+
+.tiles-line .tile:hover {
+  background-color: #0b314b !important;
+  cursor: pointer;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  text-align: left;
+  align-content: center;
+}
+
+.list p {
+  margin: 0.25rem 0rem;
+}

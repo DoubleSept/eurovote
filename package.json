@@ -1,0 +1,29 @@
+{
+  "name": "eurovote",
+  "version": "1.0.0",
+  "description": "Simple Express/Sequelize application for a local voting system",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "country-flag-emoji": "^1.0.3",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "i18n": "^0.13.3",
+    "i18n-iso-countries": "^6.7.0",
+    "load-json-file": "^6.2.0",
+    "nodemon": "^2.0.7",
+    "pg": "^8.6.0",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^6.6.2",
+    "sequelize-cli": "^6.2.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "npm run init; node index.js",
+    "init": "npx sequelize-cli db:migrate; npx sequelize-cli db:seed:all",
+    "watch": "nodemon index.js",
+    "test": "echo \"Error: no test for such a simple project please forgive me I'm not evil\" && exit 1"
+  },
+  "author": "DoubleSept",
+  "license": "MIT"
+}
