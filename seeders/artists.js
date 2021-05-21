@@ -9,59 +9,134 @@
 
 const ARTISTS_LIST  = [
   {
-    name: "Barbara Pravi",
-    song: "Voilà",
-    country: "FR"
+    name: "Elena Tsagrinou",
+    song: "El Diablo",
+    country: "CY" 
+  },
+  {
+    name: "Anxhela Peristeri",
+    song: "Karma",
+    country: "AL" 
+  },
+  {
+    name: "Eden Alene",
+    song: "Set Me Free",
+    country: "IL" 
+  },
+  {
+    name: "Hooverphonic",
+    song: "The Wrong Place",
+    country: "BE" 
+  },
+  {
+    name: "Manizha",
+    song: "Russian Woman",
+    country: "RU" 
+  },
+  {
+    name: "Destiny",
+    song: "Je Me Casse",
+    country: "MT" 
+  },
+  {
+    name: "The Black Mamba",
+    song: "Love Is On My Side",
+    country: "PT" 
+  },
+  {
+    name: "Hurricane",
+    song: "Loco Loco",
+    country: "RS" 
   },
   {
     name: "James Newman",
     song: "Embers",
-    country: "GB"
+    country: "GB" 
+  },
+  {
+    name: "Stefania",
+    song: "Last Dance",
+    country: "GR" 
+  },
+  {
+    name: "Gjon's Tears",
+    song: "Tout l'Univers",
+    country: "CH" 
+  },
+  {
+    name: "Da∂i Freyr og Gagnamagni∂",
+    song: "10 Years",
+    country: "IS" 
   },
   {
     name: "Blas Cantó",
-    song: "Voy a quedarme",
-    country: "ES"
+    song: "Voy A Querdarme",
+    country: "ES" 
+  },
+  {
+    name: "Natalia Gordienko",
+    song: "SUGAR",
+    country: "MD" 
   },
   {
     name: "Jendrik",
     song: "I Don't Feel Hate",
-    country: "DE"
+    country: "DE" 
   },
   {
-    name: "Måneskin",
-    song: "Zitti e buoni",
-    country: "IT"
+    name: "Blind Channel",
+    song: "Dark Side",
+    country: "FI" 
   },
   {
-    name: "Jeangu Macrooy",
-    song: "Birth of a New Age",
-    country: "NL"
+    name: "Victoria",
+    song: "Growing Up is Getting Old",
+    country: "BG" 
   },
   {
-    name: "Fyr & Flamme",
-    song: "Øve os på hinanden",
-    country: "DK"
-  },
-  {
-    name: "Destiny",
-    song: "Je me casse",
-    country: "MT"
-  },
-  {
-    name: "Tix",
-    song: "Fallen Angel",
-    country: "IE"
+    name: "The Roop",
+    song: "Discoteque",
+    country: "LT" 
   },
   {
     name: "Go_A",
-    song: "Шум",
-    country: "UA"
+    song: "Shum",
+    country: "UA" 
+  },
+  {
+    name: "Barbara Pravi",
+    song: "Voilà",
+    country: "FR" 
   },
   {
     name: "Efendi",
     song: "Mata Hari",
-    country: "AZ"
+    country: "AZ" 
+  },
+  {
+    name: "TIX",
+    song: "Fallen Angel",
+    country: "NO" 
+  },
+  {
+    name: "Jeangu Macrooy",
+    song: "Birth of a New Age",
+    country: "NL" 
+  },
+  {
+    name: "Måneskin",
+    song: "Zitti E Buoni",
+    country: "IT" 
+  },
+  {
+    name: "Tusse",
+    song: "Voices",
+    country: "SE" 
+  },
+  {
+    name: "Senhit",
+    song: "Adrenalina",
+    country: "SM" 
   }
 ]
 
