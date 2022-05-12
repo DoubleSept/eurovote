@@ -8,5 +8,8 @@
 	"POINT": "Point",
 	"AFTER_VOTE": "Your vote has been processed",
 	"RESULTS_USERS": "Show votes per users",
-	"RESULTS_ARTISTS": "Show votes per artists"
+	"RESULTS_ARTISTS": "Show votes per artists",
+	"PASSWORD": "Check password",
+	"ENTER_PASSWORD": "Please enter password",
+	"INCORRECT_PASSWORD": "Incorrect password"
 }

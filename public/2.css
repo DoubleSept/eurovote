@@ -62,19 +62,44 @@ body {
   justify-content: center;
 }
 
-.tiles,
-.tiles-line {
+.tiles {
   width: 100%;
 }
 
-.tiles-line:nth-child(odd) .tile:nth-child(odd),
-.tiles-line:nth-child(even) .tile:nth-child(even) {
-  background: #1c7ec0;
+@media screen and (max-width: 64em) {
+  .tile:nth-child(odd) {
+    background: #1c7ec0;
+  }
+
+  .tile:nth-child(even) {
+    background: #5aafe7;
+  }
 }
 
-.tiles-line:nth-child(even) .tile:nth-child(odd),
-.tiles-line:nth-child(odd) .tile:nth-child(even) {
-  background: #5aafe7;
+@media screen and (min-width: 64em) {
+  .tile {
+    background: #1c7ec0;
+  }
+  
+  .tile:nth-child(2),
+  .tile:nth-child(4),
+  .tile:nth-child(6),
+  .tile:nth-child(8),
+  .tile:nth-child(9),
+  .tile:nth-child(11),
+  .tile:nth-child(13),
+  .tile:nth-child(15),
+  .tile:nth-child(18),
+  .tile:nth-child(20),
+  .tile:nth-child(22),
+  .tile:nth-child(24),
+  .tile:nth-child(25),
+  .tile:nth-child(27),
+  .tile:nth-child(29),
+  .tile:nth-child(31) {
+    background: #5aafe7;
+  }
+  
 }
 
 .tiles-line .tile:hover {
@@ -92,4 +117,17 @@ body {
 
 .list p {
   margin: 0.25rem 0rem;
+}
+
+.eurovote-title {
+  text-transform: none;
+  font-size: 3rem;
+}
+
+.title1st {
+  color: #003399;
+}
+
+.title2nd {
+  color: #FFCC00;
 }

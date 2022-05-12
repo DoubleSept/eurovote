@@ -1,6 +1,6 @@
 <div class="header pure-u-1">
     <div class=" home-menu pure-menu pure-menu-horizontal">
-        <a class="pure-menu-heading" href="">EuroVote 2021</a>
+        <a class="pure-menu-heading" href="">EuroVote <%= process.env.YEAR || '' %></a>
         <% if(typeof sentenceBlock !='undefined') { %>
             <a class="pure-menu-heading" href="<%= sentenceBlock.href %>" id="sentence" style="text-transform: none; font-style: italic; text-decoration: underline;"><%= sentenceBlock.text %></a> 
         <% } else { %>

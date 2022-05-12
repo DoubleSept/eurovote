@@ -5,6 +5,8 @@ const i18n = require('./i18n')
 const countriesName = require("i18n-iso-countries");
 const countriesEmojis = require("country-flag-emoji");
 
+const PASSWORD = process.env.PASSWORD;
+
 const app = express()
 const port = process.env.PORT || 5000;
 
@@ -20,13 +22,34 @@ const vote = require('./models/vote');
 const { __ } = require('i18n');
 
 // Main
-app.get('/', function(req, res){ 
-    res.render('index');
+app.get('/', function(req, res){     
+    const parameters = {};
+
+    if(PASSWORD && (req.query.password !== PASSWORD || !req.query.password)){
+        if(req.query.password){
+            parameters['passwordIncorrect'] = true;
+        }
+        res.render('password', parameters);
+    } else {
+        if(req.query.password){
+            parameters['password'] = req.query.password;
+        }
+
+        res.render('index', parameters);
+    }
 });
+
+const passwordCheck = async function(req, res, next) {
+    if(!PASSWORD || (req.query.password === PASSWORD && req.query.password)) {
+        next()
+    } else {
+        res.status(403).send("Unauthorized");
+    }
+}
 
 
 // Vote
-app.get('/vote', async function(req, res){ 
+app.get('/vote', passwordCheck, async function(req, res){ 
     const name = req.query.name;
     const artists = await Artist.findAll({
         order: [['order', 'ASC']]
@@ -41,43 +64,45 @@ app.get('/vote', async function(req, res){
     }
     else {
         console.log(`${name} is voting`)
-        res.render('vote', { name, artists, lang, countriesName, countriesEmojis } );
+        res.render('vote', { name, artists, lang, countriesName, countriesEmojis, password: req.query.password } );
     }
-}).post('/vote', async function(req, res) {
-    
-    const name = req.body.name;
-    const votes = req.body.votes;
-    console.log(`New vote from ${name}`);
+}).post('/vote', passwordCheck, async function(req, res) {
+        const name = req.body.name;
+        const votes = req.body.votes;
+        console.log(`New vote from ${name}`);
 
-    const currentUser = await User.create({
-        name
-    });
-
-    const artists = await Artist.findAll({
-        order: [['order', 'ASC']]
-    });
-
-    const votePromises = votes.map((vote) => {
-        return Vote.create({
-            points: vote.points,
-            ArtistId: vote.artistId,
-            UserId: currentUser.id
+        const currentUser = await User.create({
+            name
         });
-    });
 
-    await Promise.all(votePromises);
+        const artists = await Artist.findAll({
+            order: [['order', 'ASC']]
+        });
 
-    console.log(`Vote OK (${name})`);
-    res.status(201).send('OK');
+        const votePromises = votes.map((vote) => {
+            return Vote.create({
+                points: vote.points,
+                ArtistId: vote.artistId,
+                UserId: currentUser.id
+            });
+        });
+
+        await Promise.all(votePromises);
+
+        console.log(`Vote OK (${name})`);
+        res.status(201).send('OK');
 });
 
-app.get('/afterVote', function(req, res){ 
-    res.render('afterVote');
+app.get('/afterVote', passwordCheck, function(req, res){ 
+    const passwordSuffix = (req.query.password) ? "?password=" + req.query.password : "" 
+    res.render('afterVote', { passwordSuffix });
 });
 
 
 // Results
-app.get('/results', async function(req, res){ 
+app.get('/results', passwordCheck, async function(req, res){ 
+    const passwordSuffix = (req.query.password) ? "?password=" + req.query.password : "" 
+
     const artists = await Artist.findAll({
         order: [['order', 'ASC']]
     });
@@ -105,14 +130,16 @@ app.get('/results', async function(req, res){
     }
     
     const sentenceBlock = {
-        href: "/resultsPerUser",
+        href: "/resultsPerUser"+passwordSuffix,
         text: __("RESULTS_USERS")
     }
 
     res.render('results', { users, artists, lang, countriesName, countriesEmojis, resultsDict, resultsArray, sentenceBlock });
 });
 
-app.get('/resultsPerUser', async function(req, res){ 
+app.get('/resultsPerUser', passwordCheck, async function(req, res){
+    const passwordSuffix = (req.query.password) ? "?password=" + req.query.password : "" 
+
     const artists = await Artist.findAll({
         order: [['order', 'ASC']]
     });
@@ -137,7 +164,7 @@ app.get('/resultsPerUser', async function(req, res){
     }
     
     const sentenceBlock = {
-        href: "/results",
+        href: "/results"+passwordSuffix,
         text: __("RESULTS_ARTISTS")
     }
 
