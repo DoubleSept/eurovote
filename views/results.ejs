@@ -13,37 +13,34 @@
 				const getCountryName = (isoCode) => countriesName.getName(isoCode, lang);
 				%>
 
-				<div class="tiles">
-					<% for(var line=0 ; line <=Math.floor(artists.length / 8); line++) { %>
-						<div class="tiles-line">
-							<% for(var index=line*8 ; index < Math.min(line*8 + 8, artists.length); index++) { %>
-								<% var artist = artists[index]; %>
-								<% var result = resultsDict[artist.id]; %>
-									<div class="tile tile-limited pure-u-1 pure-u-lg-1-8" id="tile-<%= artist.id %>">
-										<div class="tile-content">
-											<div class="id">
-												<%= artist.id %>
-											</div>
-											<div class="number">
-												<%= artist.order %>
-											</div>
-											<div class="country">
-												<%= getCountryEmoji(artist.country) %>
-													<%= getCountryName(artist.country) %>
-											</div>
-											<div class="artist">
-												<%= artist.name %>
-											</div>
-											<div class="song">
-												<%= artist.song %>
-											</div>
-											<br />
-											<div class="tilePoints" style="visibility: inherit;"><%= result.totalPoints %> <%= __('POINTS')%></div>
-										</div>
-									</div>
-									<% } %>
+				<div class="tiles pure-g">
+					<% for(var index = 0 ; index < artists.length; index++) { %>
+						<% var artist = artists[index]; %>
+						<% var result = resultsDict[artist.id]; %>
+						<div class="tile tile-limited pure-u-1 pure-u-lg-1-8 pure-u-md-1-3 pure-u-sm-1-1" id="tile-<%= artist.id %>">
+							<div class="tile-content">
+								<div class="id">
+									<%= artist.id %>
+								</div>
+								<div class="number">
+									<%= artist.order %>
+								</div>
+								<div class="country">
+									<%= getCountryEmoji(artist.country) %>
+									<%= getCountryName(artist.country) %>
+								</div>
+								<div class="artist">
+									<%= artist.name %>
+								</div>
+								<div class="song">
+									<%= artist.song %>
+								</div>
+								<br />
+								<div class="tilePoints" style="visibility: inherit;"><%= result.totalPoints %> <%= __('POINTS')%>
+								</div>
+							</div>
 						</div>
-						<% } %>
+					<% } %>
 				</div>
 	</div>
 
@@ -54,16 +51,21 @@
 		//Les ids dans l'ordre décroissants
 		var ids = [<%= resultsArray.map(r => r.artistId) %>]
 
-		$(".tile").css('visibility', 'hidden');
+		$(".tile").addClass('hidden-tile');
 
+		function showNext() {
+			var pointsValue = points.pop();
+			var id = ids.pop();
+			console.log("ok: #tile-" + id);
+			$("#tile-" + id).removeClass('hidden-tile');
+		}
 		$('body').keyup(function (e) {
 			if (e.keyCode == 32) {
-				var pointsValue = points.pop();
-				var id = ids.pop();
-				console.log("ok: #tile-" + id);
-				$("#tile-" + id).css('visibility', 'visible');
+				showNext();
 			}
 		});
+
+		$('.tiles').click(showNext);
 
 	</script>
 </body>

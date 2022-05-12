@@ -67,12 +67,16 @@ body {
 }
 
 @media screen and (max-width: 64em) {
-  .tile:nth-child(odd) {
+  .tile {
     background: #1c7ec0;
   }
 
   .tile:nth-child(even) {
     background: #5aafe7;
+  }
+
+  .hidden-tile {
+    display: none;
   }
 }
 
@@ -100,6 +104,9 @@ body {
     background: #5aafe7;
   }
   
+  .hidden-tile {
+    visibility: hidden;
+  }
 }
 
 .tiles-line .tile:hover {

@@ -63,13 +63,11 @@
 
 			//Set points
 			if (points.length > 0) {
-				console.log("coucou");
 				currentPoints = points.shift();
 
-				$(this).css('visibility', 'hidden');
+				$(this).addClass('hidden-tile');
 				setPoints();
 			} else {
-				console.log("chier");
 				$("#sentence").text("Vote terminé");
 				$.post({
 					url: "/vote"+passwordSuffix,
