@@ -3,7 +3,7 @@
       "username": "user",
       "password": "password",
       "database": "db",
-      "host": "database",
+      "host": "eurovote_database",
       "port": 5432,
       "logging": true,
       "dialect": "postgres",
