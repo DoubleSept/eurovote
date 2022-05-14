@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<%- include('head.ejs') %>
+</head>
+
+<body id="">
+	<div class="pure-g" style="height:100%;overflow: none;">
+		<%- include('header.ejs') %>
+
+			<% const getCountryEmoji=(isoCode)=> countriesEmojis.get(isoCode).emoji;
+				const getCountryName = (isoCode) => countriesName.getName(isoCode, lang);
+				%>
+
+				<div class="tiles pure-g">
+					<% for(var index = 0 ; index < resultsArray.length; index++) { %>
+						<% var result = resultsArray[index]; %>
+						<% var artistId = result.artistId; %>
+						<% var artist = artists[artistId-1]; %>
+						<div class="tile tile-limited pure-u-1 pure-u-lg-1-8 pure-u-md-1-3 pure-u-sm-1-1" id="tile-<%= artist.id %>">
+							<div class="tile-content">
+								<div class="id">
+									<%= artist.id %>
+								</div>
+								<div class="number">
+									<%= artist.order %>
+								</div>
+								<div class="country">
+									<%= getCountryEmoji(artist.country) %>
+									<%= getCountryName(artist.country) %>
+								</div>
+								<div class="artist">
+									<%= artist.name %>
+								</div>
+								<div class="song">
+									<%= artist.song %>
+								</div>
+								<br />
+								<div class="tilePoints" style="visibility: inherit;"><%= result.totalPoints %> <%= __('POINTS')%>
+								</div>
+							</div>
+						</div>
+					<% } %>
+				</div>
+	</div>
+
+	<script>
+	</script>
+</body>
+
+</html>

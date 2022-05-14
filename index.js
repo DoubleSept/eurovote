@@ -171,6 +171,47 @@ app.get('/resultsPerUser', passwordCheck, async function(req, res){
     res.render('resultsPerUser', { users, artists, lang, countriesName, countriesEmojis, resultsDict, sentenceBlock });
 });
 
+// Results
+app.get('/resultsMobile', passwordCheck, async function(req, res){ 
+    const passwordSuffix = (req.query.password) ? "?password=" + req.query.password : "" 
+
+    const artists = await Artist.findAll({
+        order: [['order', 'ASC']]
+    });
+    const users = await User.findAll({
+    });
+
+    const votes = await Vote.findAll();
+    
+    const resultsDict = {}
+
+    artists.forEach((artist) => resultsDict[artist.id] = { artistId: artist.id, totalPoints: 0, users: [] } )
+    votes.forEach((v) => {
+        resultsDict[v.ArtistId].totalPoints += v.points;
+        resultsDict[v.ArtistId].users.push({userId: v.UserId, points: v.points});
+    });
+
+    const resultsArray = Object.values(resultsDict);
+    resultsArray.sort((r1, r2) => {
+        return r2.totalPoints - r1.totalPoints;
+    });
+    
+    console.log(resultsArray);
+    console.log(artists)
+
+    var lang = req.acceptsLanguages('fr', 'en');
+    if( !lang) {
+        lang= "en";
+    }
+    
+    const sentenceBlock = {
+        href: "/resultsPerUser"+passwordSuffix,
+        text: __("RESULTS_USERS")
+    }
+
+    res.render('resultsMobile', { users, artists, lang, countriesName, countriesEmojis, resultsDict, resultsArray, sentenceBlock });
+});
+
 // Error handling (404)
 app.use(function(req, res, next) {
     res.status(404).render('404');
