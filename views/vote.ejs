@@ -11,7 +11,7 @@
 		<%- include('header.ejs') %>
 
 		<% 
-		const getCountryEmoji = (isoCode) => countriesEmojis.get(isoCode).emoji;
+		const getCountryEmoji = (isoCode) => {console.log(isoCode); return countriesEmojis.get(isoCode).emoji};
 		const getCountryName = (isoCode) => countriesName.getName(isoCode, lang);
 		%>
 

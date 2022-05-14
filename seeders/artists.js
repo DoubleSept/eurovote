@@ -9,134 +9,129 @@
 
 const ARTISTS_LIST  = [
   {
-    name: "Elena Tsagrinou",
-    song: "El Diablo",
-    country: "CY" 
+    name: "We Are Domi",
+    song: "Lights Off",
+    country: "CZ" 
   },
   {
-    name: "Anxhela Peristeri",
-    song: "Karma",
-    country: "AL" 
+    name: "WRS",
+    song: "Llámame",
+    country: "RO" 
   },
   {
-    name: "Eden Alene",
-    song: "Set Me Free",
-    country: "IL" 
-  },
-  {
-    name: "Hooverphonic",
-    song: "The Wrong Place",
-    country: "BE" 
-  },
-  {
-    name: "Manizha",
-    song: "Russian Woman",
-    country: "RU" 
-  },
-  {
-    name: "Destiny",
-    song: "Je Me Casse",
-    country: "MT" 
-  },
-  {
-    name: "The Black Mamba",
-    song: "Love Is On My Side",
+    name: "MARO",
+    song: "Saudade, saudade",
     country: "PT" 
   },
   {
-    name: "Hurricane",
-    song: "Loco Loco",
-    country: "RS" 
-  },
-  {
-    name: "James Newman",
-    song: "Embers",
-    country: "GB" 
-  },
-  {
-    name: "Stefania",
-    song: "Last Dance",
-    country: "GR" 
-  },
-  {
-    name: "Gjon's Tears",
-    song: "Tout l'Univers",
-    country: "CH" 
-  },
-  {
-    name: "Da∂i Freyr og Gagnamagni∂",
-    song: "10 Years",
-    country: "IS" 
-  },
-  {
-    name: "Blas Cantó",
-    song: "Voy A Querdarme",
-    country: "ES" 
-  },
-  {
-    name: "Natalia Gordienko",
-    song: "SUGAR",
-    country: "MD" 
-  },
-  {
-    name: "Jendrik",
-    song: "I Don't Feel Hate",
-    country: "DE" 
-  },
-  {
-    name: "Blind Channel",
-    song: "Dark Side",
+    name: "The Rasmus",
+    song: "Jezebel",
     country: "FI" 
   },
   {
-    name: "Victoria",
-    song: "Growing Up is Getting Old",
-    country: "BG" 
+    name: "Marius Bear",
+    song: "Boys Do Cry",
+    country: "CH" 
   },
   {
-    name: "The Roop",
-    song: "Discoteque",
-    country: "LT" 
-  },
-  {
-    name: "Go_A",
-    song: "Shum",
-    country: "UA" 
-  },
-  {
-    name: "Barbara Pravi",
-    song: "Voilà",
+    name: "Alvan & Ahez",
+    song: "Fulenn",
     country: "FR" 
   },
   {
-    name: "Efendi",
-    song: "Mata Hari",
-    country: "AZ" 
-  },
-  {
-    name: "TIX",
-    song: "Fallen Angel",
+    name: "Subwoolfer",
+    song: "Give That Wolf a Banana",
     country: "NO" 
   },
   {
-    name: "Jeangu Macrooy",
-    song: "Birth of a New Age",
-    country: "NL" 
+    name: "Rosa Linn",
+    song: "SNAP",
+    country: "AM" 
   },
   {
-    name: "Måneskin",
-    song: "Zitti E Buoni",
+    name: "Mahmood et Blanco",
+    song: "Brividi",
     country: "IT" 
   },
   {
-    name: "Tusse",
-    song: "Voices",
+    name: "Chanel",
+    song: "SloMo",
+    country: "ES" 
+  },
+  {
+    name: "S10",
+    song: "De diepte",
+    country: "NL" 
+  },
+  {
+    name: "Kalush Orchestra",
+    song: "Stefania (Стефанія)",
+    country: "UA" 
+  },
+  {
+    name: "Malik Harris",
+    song: "Rockstars",
+    country: "DE" 
+  },
+  {
+    name: "Monika Liu",
+    song: "Sentimental",
+    country: "LT" 
+  },
+  {
+    name: "Nadir Rüstəmli",
+    song: "Fade to Black",
+    country: "AZ" 
+  },
+  {
+    name: "Jérémie Makiese",
+    song: "Miss You",
+    country: "BE" 
+  },
+  {
+    name: "Amanda Tenfjord",
+    song: "Die Together",
+    country: "GR" 
+  },
+  {
+    name: "Systur",
+    song: "Með hækkandi sól",
+    country: "IS" 
+  },
+  {
+    name: "Zdob și Zdub et Frații Advahov",
+    song: "Trenulețul",
+    country: "MD" 
+  },
+  {
+    name: "Cornelia Jakobs",
+    song: "Hold Me Closer",
     country: "SE" 
   },
   {
-    name: "Senhit",
-    song: "Adrenalina",
-    country: "SM" 
+    name: "Sheldon Riley",
+    song: "Not the Same",
+    country: "AU" 
+  },
+  {
+    name: "Sam Ryder",
+    song: "Spaceman",
+    country: "GB" 
+  },
+  {
+    name: "Ochman",
+    song: "River",
+    country: "PL" 
+  },
+  {
+    name: "Konstrakta",
+    song: "In corpore sano",
+    country: "RS" 
+  },
+  {
+    name: "Stefan",
+    song: "Hope",
+    country: "EE" 
   }
 ]
 
