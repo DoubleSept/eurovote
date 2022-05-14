@@ -11,5 +11,31 @@
           "force": true
       },
       "seederStorage": "sequelize"
+  },
+  "eurovote": {
+      "username": "user",
+      "password": "password",
+      "database": "db",
+      "host": "eurovote_database",
+      "port": 5432,
+      "logging": true,
+      "dialect": "postgres",
+      "sync": {
+          "force": true
+      },
+      "seederStorage": "sequelize"
+  },
+  "votovision": {
+      "username": "user",
+      "password": "password",
+      "database": "db",
+      "host": "votovision_database",
+      "port": 5432,
+      "logging": true,
+      "dialect": "postgres",
+      "sync": {
+          "force": true
+      },
+      "seederStorage": "sequelize"
   }
 }
